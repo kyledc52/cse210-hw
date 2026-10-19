@@ -2,6 +2,8 @@ using System;
 using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
 
+// For creativity, I added to the program.cs file under option 1 asking them if they wanted a different prompt 
+// because not every prompt is going to be relevant. Flexibility is good!
 class Program
 {
     // access w/o creating object

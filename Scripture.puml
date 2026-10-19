@@ -1,0 +1,47 @@
+@startuml @ Scripture
+
+' This class is how the user interacts with the Scripture class.
+class Program {
+    + Main()
+    + DisplayMenu()
+}
+
+' The Journal class is basically what does all the heavy lifting. It is what stores the Entries,
+' saves them, displays entries, and adds them.
+class Scripture {
+    - _scripture : List<Word>
+    - _scriptureReference : Reference
+    --
+    + Scripture(string reference, string scripture)
+    + HideRandomWords()
+    + IsCompletelyHidden() : bool
+    + GetDisplayText() : string
+}
+
+class Word {
+    - _text : string
+    ' default to false
+    - _isHidden : bool
+    --
+    + Word(string word)
+    + HideWord()
+    + IsHidden() : bool
+    + GetDisplayText() : string
+}
+
+class Reference {
+    - _book
+    - _chapter
+    - _startVerse
+    - _endVerse
+    --
+    + Reference(string book, int chapter, int startVerse)
+    + Reference(string book, int chapter, int startVerse, int endVerse)
+    + GetReference() : string
+}
+
+Program --> Scripture
+Scripture --> Reference
+Scripture --> Word
+
+@enduml
