@@ -3,9 +3,12 @@ using Microsoft.VisualBasic;
 
 class Program
 {
+
+    // I went above and beyond by creating another different class that is at the top of the hierarchy, the ScriptureLibrary class. It uses a
+    // txt file to grab a random scripture according to a category the user enters. It will then display that scripture. I also pushed myself
+    // and used dictionaries. (I used to know Java really well and took an AP test and scored well on it, so this is a refresher basically lol).
     static void Main(string[] args)
     {
-        // Scripture verse = new Scripture("And he shall go forth, suffering pains and afflictions and temptations of every kind; and this that the word might be fulfilled which saith he will take upon him the pains and the sicknesses of his people.", "Alma 7:11");
         string input = "";
         while (input != "1" && input != "2" && input != "3" && input != "4" && input != "5")
         {
@@ -44,6 +47,7 @@ class Program
 
         ScriptureLibrary scriptures = new ScriptureLibrary();
         Scripture myVerse = scriptures.GetRandomScripture(category);
+        // Scripture verse = new Scripture("scripture hello hello", "1 nephi 12:1212");
 
         while (true)
         {
