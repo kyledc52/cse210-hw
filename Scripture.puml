@@ -6,37 +6,44 @@ class Program {
     + DisplayMenu()
 }
 
-' The Journal class is basically what does all the heavy lifting. It is what stores the Entries,
-' saves them, displays entries, and adds them.
+' The Scripture class is the basically the core of how the program works.
+' All the other classes use this class to create a scripture object.
 class Scripture {
     - _scripture : List<Word>
     - _scriptureReference : Reference
     --
-    + Scripture(string reference, string scripture)
-    + HideRandomWords()
+    + Scripture(reference : string, scripture : string)
+    + HideRandomWords() : void
     + IsCompletelyHidden() : bool
     + GetDisplayText() : string
 }
 
+' This class is used to define what a word is. It is useful because it adds functionality of actually hiding each word.
+' Every word in a scripture is an object. We need this class to hide each individual word.
+' The scripture class is the only class that uses this.
 class Word {
     - _text : string
     ' default to false
     - _isHidden : bool
     --
-    + Word(string word)
-    + HideWord()
+    + Word(word : string)
+    + HideWord() : void
     + IsHidden() : bool
     + GetDisplayText() : string
 }
 
+' The reference class is there to display the reference of the scripture, but it's main use is to detect if the scripture has
+' more than 1 verse.
+' The scripture class is the only class that uses this.
 class Reference {
-    - _book
-    - _chapter
-    - _startVerse
-    - _endVerse
+    - _book : string
+    - _chapter : string
+    - _startVerse : int
+    - _endVerse : int
+    - _isOneVerse : bool
     --
-    + Reference(string book, int chapter, int startVerse)
-    + Reference(string book, int chapter, int startVerse, int endVerse)
+    + Reference(book : string, chapter : int, startVerse : int)
+    + Reference(book : string, chapter : int, startVerse : int, endVerse : int)
     + GetReference() : string
 }
 
