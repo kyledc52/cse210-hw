@@ -1,12 +1,12 @@
 public class ScriptureLibrary
 {
-    private string[] lines = File.ReadAllLines("scriptures.txt");
+    private string[] _lines = File.ReadAllLines("scriptures.txt");
     private Dictionary<string, List<Scripture>> _verses = new Dictionary<string, List<Scripture>>();
-    Random random = new Random();
+    Random _random = new Random();
 
     public ScriptureLibrary()
     {
-        int fileLength = lines.Length;
+        int fileLength = _lines.Length;
 
         // Add the 5 categories to the dictionary as the keys.
         _verses.Add("Faith", new List<Scripture>());
@@ -16,7 +16,7 @@ public class ScriptureLibrary
         _verses.Add("ETTE", new List<Scripture>());
 
         // Iterate through txt file and put them in the dictionary under their category.
-        foreach (string line in lines)
+        foreach (string line in _lines)
         {
             string[] parts = line.Split("|");
             Scripture currentScripure = new Scripture(parts[2],parts[0]);
@@ -50,35 +50,35 @@ public class ScriptureLibrary
         if (inputCategory == "Faith")
         {
             List<Scripture> faithVerses = _verses["Faith"];
-            int randIndex = random.Next(faithVerses.Count);
+            int randIndex = _random.Next(faithVerses.Count);
             Scripture randScripture = faithVerses[randIndex];
             return randScripture;
         }
         else if (inputCategory == "Repentance")
         {
             List<Scripture> repentanceVerses = _verses["Repentance"];
-            int randIndex = random.Next(repentanceVerses.Count);
+            int randIndex = _random.Next(repentanceVerses.Count);
             Scripture randScripture = repentanceVerses[randIndex];
             return randScripture;
         }
         else if (inputCategory == "Holy Ghost")
         {
             List<Scripture> holyGhostVerses = _verses["Holy Ghost"];
-            int randIndex = random.Next(holyGhostVerses.Count);
+            int randIndex = _random.Next(holyGhostVerses.Count);
             Scripture randScripture = holyGhostVerses[randIndex];
             return randScripture;
         }
         else if (inputCategory == "Baptism")
         {
             List<Scripture> baptismVerses = _verses["Baptism"];
-            int randIndex = random.Next(baptismVerses.Count);
+            int randIndex = _random.Next(baptismVerses.Count);
             Scripture randScripture = baptismVerses[randIndex];
             return randScripture;
         }
         else if (inputCategory == "ETTE")
         {
             List<Scripture> etteVerses = _verses["ETTE"];
-            int randIndex = random.Next(etteVerses.Count);
+            int randIndex = _random.Next(etteVerses.Count);
             Scripture randScripture = etteVerses[randIndex];
             return randScripture;
         }

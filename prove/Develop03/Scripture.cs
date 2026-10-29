@@ -6,7 +6,7 @@ public class Scripture
 {
     private List<Word> _scripture = new List<Word>();
     private Reference _scriptureReference;
-    private Random random = new Random();
+    private Random _random = new Random();
 
     public Scripture(string scripture, string reference)
     {   
@@ -54,7 +54,7 @@ public class Scripture
         int len = _scripture.Count();
         while (hidden < numOfWordsToHide)
         {
-            int randIndex = random.Next(len);
+            int randIndex = _random.Next(len);
             Word currentWord = _scripture[randIndex]; // Select random word
             if (!currentWord.IsHidden())
             {
@@ -110,9 +110,4 @@ public class Scripture
 
         return textToDisplay;
     }
-
-    // public string GetRandomScripture()
-    // {
-
-    // }
 }
