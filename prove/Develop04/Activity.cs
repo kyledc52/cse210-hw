@@ -9,19 +9,19 @@ public class Activity
     private double _duration;
     private Stopwatch _stopWatch;
     private Random _random;
-    private bool isRunning;
+    private bool _isRunning;
 
     public Activity()
     {
         _stopWatch = new Stopwatch();
         _random = new Random();
-        isRunning = true;
+        _isRunning = true;
     }
 
     protected void Pause(int seconds)
     {
         string[] displays = { "\\", "|", "/", "-" };
-        if (isRunning) {
+        if (_isRunning) {
             for (int i = 0; i < seconds * 4 && GetElapsedTime() < GetDuration(); i++)
             {
                 int indexCalculation = i % displays.Length;
@@ -119,7 +119,7 @@ public class Activity
     {
         if (GetType().Name == "BreathingActivity")
         {
-            isRunning = true;
+            _isRunning = true;
             Console.Clear();
 
             Console.WriteLine("Welcome to the Breathing Activity");
@@ -128,7 +128,7 @@ public class Activity
         }
         else if (GetType().Name == "ReflectionActivity")
         {
-            isRunning = true;
+            _isRunning = true;
             Console.Clear();
 
             Console.WriteLine("Welcome to the Reflection Activity");
@@ -137,7 +137,7 @@ public class Activity
         }
         else if (GetType().Name == "ListingActivity")
         {
-            isRunning = true;
+            _isRunning = true;
             Console.Clear();
 
             Console.WriteLine("Welcome to the Listing Activity");
@@ -150,7 +150,7 @@ public class Activity
     {
         if (GetType().Name == "BreathingActivity")
         {
-            isRunning = false;
+            _isRunning = false;
             Console.WriteLine("Well done!!!");
             Pause(4);
             Console.WriteLine($"\nYou have completed {GetDuration()} seconds of the Breathing Activity!");
@@ -159,7 +159,7 @@ public class Activity
         }
         else if (GetType().Name == "ReflectionActivity")
         {
-            isRunning = false;
+            _isRunning = false;
             Console.WriteLine("\nWell done!!!");
             Pause(4);
             Console.WriteLine($"\nYou have completed {GetDuration()} seconds of the Reflecting Activity!");
@@ -168,7 +168,7 @@ public class Activity
         }
         else if (GetType().Name == "ListingActivity")
         {
-            isRunning = false;
+            _isRunning = false;
             Console.WriteLine("\nWell done!!!");
             Pause(4);
             Console.WriteLine($"\nYou have completed {GetDuration()} seconds of the Listing Activity!");
