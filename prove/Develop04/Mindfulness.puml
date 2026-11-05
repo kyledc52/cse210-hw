@@ -1,0 +1,55 @@
+@startuml Mindfulness
+
+class Program {
+    + Main()
+}
+
+' pause has an animation
+class Activity {
+    - _duration : int
+    - _stopWatch : Stopwatch
+    - _random : Random
+    --
+    + Activity(duration : int) : void
+    + Pause() : void
+    + SetDuration(dur : int) : void
+    + StartStopwatch() : void
+    + StopStopwatch() : void
+    + GetElapsedTime() : double
+    + GetDuration() : int
+    + DisplayCountDown() : void
+    + DisplayAnimation() : void
+    + DisplayStartMessage(activityType : string) : void
+    + DisplayEndMessage(activityType : string) : void
+    + GetRandomPrompt(prompts : List<string>) : string
+}
+
+Class BreathingActivity {
+    + BreathingActivity() : void
+    + StartBreathingActivity() : void
+}
+
+Class ReflectionActivity {
+    - _ponderPrompts : List<string>
+    - _reflectQuestions : List<string>
+    --
+    + ReflectionActivity() : void
+    + StartReflectionActivity() : void
+}
+
+Class ListingActivity {
+    - _listingPrompts : List<string>
+    - _numOfItemsEntered : int
+    --
+    + ListingActivity() : void
+    + DisplayAmountOfItemsEntered() : void
+    + StartListingActivity() : void
+}
+
+Program -> BreathingActivity
+Program -> ReflectionActivity
+Program -> ListingActivity
+
+Activity <|-- BreathingActivity
+Activity <|-- ReflectionActivity
+Activity <|-- ListingActivity
