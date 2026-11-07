@@ -26,7 +26,7 @@ class Program
                 Console.Write("Select a choice from the menu (1-4): ");
                 try
                 {
-                    userInput = int.Parse(Console.ReadLine());
+                    userInput = int.Parse(Console.ReadLine().Trim());
                     if (userInput > 0 && userInput <= 4)
                     {
                         break;
@@ -41,6 +41,7 @@ class Program
                     Console.WriteLine("Invalid Option.");
                 }
             }
+
 
             // Begin activities
             switch (userInput)

@@ -59,7 +59,7 @@ public class Activity
             Console.Write("How long, in seconds, would you like your session to be?: ");
             try
             {
-                userDur = int.Parse(Console.ReadLine());
+                userDur = int.Parse(Console.ReadLine().Trim());
                 if (userDur <= 0)
                 {
                     throw new FormatException();
