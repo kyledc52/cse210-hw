@@ -1,5 +1,7 @@
 using System;
 
+// To go above and beyong, I learned how paths work in C# and I added a rank system to tell the user what rank they are. The ranks
+// go up depending on how many points the user has.
 class Program
 {
     static GoalManager gm = new GoalManager();
