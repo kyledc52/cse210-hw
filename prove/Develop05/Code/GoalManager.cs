@@ -40,7 +40,7 @@ public class GoalManager
         }
         else
         {
-            return _ranks[1];
+            return _ranks[0];
         }
     }
 

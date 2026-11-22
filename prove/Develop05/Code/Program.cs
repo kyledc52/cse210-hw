@@ -79,7 +79,7 @@ class Program
 
         if (rankBefore != rankAfter)
         {
-            
+            Console.WriteLine($"You ranked up!! You are now ranked: {rankAfter}");
         }
     }
 
