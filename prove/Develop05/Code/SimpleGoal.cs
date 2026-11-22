@@ -12,11 +12,30 @@ public class SimpleGoal : Goal
             SetComplete();
 
             gm.AddPoints(GetPointsValue());
+
+            Console.WriteLine($"You earned {GetPointsValue()} points!");
         }
     }
     
     public override string GetSaveString()
     {
         return $"{GetType().Name}:{GetName()},{GetDescription()},{GetPointsValue()},{isCompleted()}";
+    }
+
+    public override void DisplayGoal()
+    {
+        string completedStrValue = GetCompletedStr();
+
+        Console.WriteLine($"[{completedStrValue}] {GetName()} ({GetDescription()})");
+    }
+
+    private string GetCompletedStr()
+    {
+        if (isCompleted())
+        {
+            return "X";
+        }
+
+        return " ";
     }
 }

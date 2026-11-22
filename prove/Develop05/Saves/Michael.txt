@@ -1,5 +1,0 @@
-0
-SimpleGoal:SimpleGoal,gay,1000,False
-SimpleGoal:SimpleGoal,yes,200,False
-SimpleGoal:SimpleGoal,Yes,100,False
-SimpleGoal:YAY,hdhdhd,100,False

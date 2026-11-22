@@ -6,7 +6,6 @@ class Program
 
     static void Main(string[] args)
     {
-
         while (true)
         {
             int option = DisplayMenuOptionInput();
@@ -20,7 +19,7 @@ class Program
 
                 case 2:
                     // List Goals
-                    ListGoals();
+                    gm.ListAllGoals();
                     break;
 
                 case 3:
@@ -49,9 +48,39 @@ class Program
         }
     }
 
+    public static void CreateNewGoal()
+    {
+        int goalOption = DisplayGoalMenuInput();
+        var (goalName, goalDesc, goalPoints) = GetUserGoalDetails();
+
+        int targetAmount = 0;
+        int bonusPoints = 0;
+
+        if (goalOption == 2)
+        {
+            targetAmount = GetNumberInRange("How many times do you want to complete this goal?: ", 1, 1000);
+            bonusPoints = GetNumberInRange("How many bonus points do you get at the end?: ", 1, 10000);
+        }
+
+        gm.CreateGoal(goalOption, goalName, goalDesc, goalPoints, false, targetAmount, bonusPoints);
+    }
+
     public static void RecordEvent()
     {
+        gm.ListAllGoals();
         
+        string rankBefore = gm.GetRank();
+
+        int goalOption = GetNumberInRange($"Which goal would you like to mark as completed (1-{gm.GetNumberOfGoals()})?: ", 1, gm.GetNumberOfGoals());
+
+        gm.RecordEvent(goalOption-1);
+
+        string rankAfter = gm.GetRank();
+
+        if (rankBefore != rankAfter)
+        {
+            
+        }
     }
 
     public static void LoadFile()
@@ -65,19 +94,6 @@ class Program
         Console.Write("What would you like to name your file?: ");
         gm.SaveToFile(Console.ReadLine());
     } 
-
-    public static void ListGoals()
-    {
-        
-    }
-
-    public static void CreateNewGoal()
-    {
-        int goalOption = DisplayGoalMenuInput();
-        var (goalName, goalDesc, goalPoints) = GetUserGoalDetails();
-
-        gm.CreateGoal(goalOption, goalName, goalDesc, goalPoints);
-    }
 
     // returns tuple
     public static (string, string, int) GetUserGoalDetails() 
@@ -95,7 +111,7 @@ class Program
 
     public static int DisplayGoalMenuInput()
     {
-        Console.WriteLine("What type of Goal would you like to make?");
+        Console.WriteLine("What type of Goal would you like to create?");
         Console.WriteLine("1: Simple Goal");
         Console.WriteLine("2: CheckList Goal");
         Console.WriteLine("3: Eternal Goal");
@@ -107,6 +123,8 @@ class Program
 
     public static int DisplayMenuOptionInput()
     {
+        Console.WriteLine();
+        Console.WriteLine($"You have {gm.GetTotalPoints()} points. Rank: {gm.GetRank()}");
         Console.WriteLine();
         Console.WriteLine("Welcome To Eternal Quest");
         Console.WriteLine("1: Create New Goal");

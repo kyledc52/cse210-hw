@@ -1,0 +1,4 @@
+4600
+CheckListGoal:Store,Go to the store,1000,True,2,2,100
+SimpleGoal:Roommate,Say hi to michael today,500,True
+EternalGoal:Temple,Go to the temple,2000,False

@@ -1,3 +1,0 @@
-0
-SimpleGoal:SimpleGoal,cool,1000,False
-SimpleGoal:Jack,test,1000,False
