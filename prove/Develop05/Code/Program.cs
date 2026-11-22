@@ -102,7 +102,6 @@ class Program
     {
         Console.Write("What's the name of your goal?: ");
         string goalName = Console.ReadLine();
-        Console.WriteLine();
         Console.Write("What's the description of your goal?: ");
         string goalDesc = Console.ReadLine();
   
