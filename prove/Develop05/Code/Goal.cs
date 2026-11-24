@@ -22,14 +22,6 @@ public abstract class Goal
             _completed = isComplete;
         }
     }
-    
-    public int Points
-    {
-        get
-        {
-            return _pointsValue;
-        }
-    }
 
     public int GetPoints()
     {

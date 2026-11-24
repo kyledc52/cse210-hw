@@ -26,7 +26,6 @@ public class CheckListGoal : Goal
         _amountCompleted++;
         gm.AddPoints(GetPointsValue());
         Console.WriteLine($"You earned {GetPointsValue()} points!");
-
         if (_amountCompleted >= _targetAmount)
         {
             SetComplete();
