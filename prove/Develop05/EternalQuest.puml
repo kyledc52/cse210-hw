@@ -1,0 +1,74 @@
+@startuml EternalQuest
+
+class Program {
+    main() : void
+    DisplayMenu() : void
+}
+
+class GoalManager {
+    - List<Goal> : Goal
+
+    --
+
+    + GoalManager() : void
+    + CreateGoal(points : int, name : string, desc : string) : void
+    + DisplayGoals() : void
+    + SaveFile() : void
+    + LoadFile() : void
+    + RecordEvent() : void
+}
+
+abstract class Goal {
+    - _points : int
+    - _name : string
+    - _description : string
+    - _completed : bool
+
+    --
+
+    + Goal(points : int, name : string, desc : string) : void
+    + GetPoints() : int
+    + AddPoints(amount : int) : void
+    + SetPoints(value : int) : void
+    + DisplayPoints() : void
+    + GetName() : string
+    + GetDescription : string
+    + GetStringDetails() : string
+    + SetComplete : void
+}
+
+class EternalGoal {
+    + EternalGoal(points : int, name : string, desc : string) : void
+    + IsCompleted() : bool
+    + RecordEvent() : void
+    + GetStringDetails() : string
+}
+
+class SimpleGoal {
+    + SimpleGoal(points : int, name : string, desc : string) : void
+    + IsCompleted() : void
+    + RecordEvent() : void
+    + GetStringDetails() : string
+}
+
+class CheckListGoal {
+    - _amountCompleted : int
+    - _targetAmount : int
+    - _bonusPoints : int
+    --
+    + CheckListGoal(points : int, name : string, desc : string) : void
+    + IsCompleted() : bool
+    + RecordEvent() : void
+    + GetUserInputTargetAmount() : void
+    + GetUserInputBonusAmount() : void
+    + GetStringDetails() : string
+}
+
+Goal <|-- EternalGoal
+Goal <|-- SimpleGoal
+Goal <|-- CheckListGoal
+
+GoalManager --> Goal
+Program --> GoalManager
+
+@enduml

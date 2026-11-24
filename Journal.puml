@@ -1,0 +1,36 @@
+@startuml @ Journal
+
+' This class is how the user interacts with the Journal and Entry classes.
+class Program {
+    + Main()
+    + DisplayMenu()
+}
+
+' The Journal class is basically what does all the heavy lifting. It is what stores the Entries,
+' saves them, displays entries, and adds them.
+class Journal {
+    - _entries : List<Entry>
+    - _prompts : List<string>
+    --
+    + AddEntry()
+    + Display()
+    + GeneratePrompt()
+    + SaveToFile()
+    + LoadFromFile()
+}
+
+' The entry class will work under the Journal class.
+' The Journal class will use Entry to generate a proper userinput entry
+' and add that entry to the Journal entries list attribute.
+class Entry {
+    - _date : string
+    - _prompt : string
+    - _response : string
+    --
+    + Display()
+}
+
+Program --> Journal
+Journal --> Entry
+
+@enduml
